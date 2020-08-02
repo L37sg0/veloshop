@@ -1,18 +1,39 @@
 doctrine:
-    dbal:
-        url: '%env(resolve:DATABASE_URL)%'
-
-        # IMPORTANT: You MUST configure your server version,
-        # either here or in the DATABASE_URL env var (see .env file)
-        #server_version: '5.7'
-    orm:
-        auto_generate_proxy_classes: true
-        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
-        auto_mapping: true
-        mappings:
-            App:
-                is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+        dbal:
+            dbname:               veloshop
+            host:                 localhost
+            port:                 3306
+            user:                 admin
+            password:             12348765
+            driver:               pdo_mysql
+            server_version:       'mariadb-10.3.22'
+            # if the url option is specified, it will override the above config
+            #url:                  mysql://admin:12348765@127.0.0.1:3306/veloshop
+            # the DBAL driverClass option
+            #driver_class:         App\DBAL\MyDatabaseDriver
+            # the DBAL driverOptions option
+            #options:
+            #    foo: bar
+            #path:                 '%kernel.project_dir%/var/data/data.sqlite'
+            #memory:               true
+            #unix_socket:          /tmp/mysql.sock
+            # the DBAL wrapperClass option
+            #wrapper_class:        App\DBAL\MyConnectionWrapper
+            #charset:              UTF8
+            #logging:              '%kernel.debug%'
+            #platform_service:     App\DBAL\MyDatabasePlatformService
+            #mapping_types:
+            #    enum: string
+            #types:
+            #    custom: App\DBAL\MyCustomType
+        orm:
+            auto_generate_proxy_classes: true
+            naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+            auto_mapping: true
+            mappings:
+                App:
+                    is_bundle: false
+                    type: annotation
+                    dir: '%kernel.project_dir%/src/Entity'
+                    prefix: 'App\Entity'
+                    alias: App
