@@ -1,3 +1,18 @@
-#index:
+# Landing:
 #    path: /
-#    controller: App\Controller\DefaultController::index
+#    controller: App\Controller\FrontendController::index
+# Product Listing:
+#    path: /bikes
+#    controller: App\Controller\FrontendController::bikes
+# Product View:
+#    path: /bikes/{$bikeSKU}
+#    controller: App\Controller\FrontendController::bikes
+# About:
+#    path: /about
+#    controller: App\Controller\FrontendController::about
+# Cart:
+#    path: /cart
+#    controller: App\Controller\FrontendController::cart
+# Checkout:
+#    path: /checkout
+#    controller: App\Controller\FrontendController::checkout
