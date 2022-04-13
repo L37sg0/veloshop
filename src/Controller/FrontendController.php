@@ -11,15 +11,16 @@ class FrontendController extends AbstractController
      * @Route("/", name="landing")
      */
     public function index() {
-        return $this->render('veloshop/index.html.twig');
+        return $this->render('veloshop/pages/home.html.twig');
     }
 
+    /**
+     * @param string $sku
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/bikes", name="bikes")
+     */
     public function bikes(string $sku='') {
-        if (empty($sku)) {
-            return '...';
-        }
-        return [];
-        // TODO implement Product Listing page
+        return $this->render('veloshop/pages/product.list.html.twig');
     }
 
     public function about() {

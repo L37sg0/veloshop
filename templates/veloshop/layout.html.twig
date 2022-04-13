@@ -16,7 +16,6 @@
     <body>
     <div class="container">
         <div class="header">
-<!--            {% include 'veloshop/components/header.html.twig' %}-->
             {% include 'veloshop/components/banner.html.twig' %}
         </div>
         <div class="navigation">
@@ -25,17 +24,8 @@
         <div class="searchbox">
             {% include 'veloshop/components/searchbox.html.twig' %}
         </div>
-        <div class="breadcrumbs">
-            {% include 'veloshop/components/breadcrumbs.html.twig' %}
-        </div>
-        <div class="card">
-            {% include 'veloshop/components/card.html.twig' %}
-        </div>
-        <div class="progressbar">
-            {% include 'veloshop/components/progressbar.html.twig' %}
-        </div>
-        <div class="pagination">
-            {% include 'veloshop/components/pagination.html.twig' %}
+        <div class="content">
+            {% block content %}{% endblock %}
         </div>
         <div class="footer">
             {% include 'veloshop/components/footer.html.twig' %}
