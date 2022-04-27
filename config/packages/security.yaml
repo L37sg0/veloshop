@@ -1,7 +1,7 @@
 security:
-    encoders:
-        App\Entity\User:
-            algorithm: auto
+#    encoders:
+#        App\Entity\User:
+#            algorithm: auto
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
@@ -19,14 +19,14 @@ security:
             security: false
 
         main:
-            anonymous: true
+#            anonymous: true
             lazy: true
             provider: app_user_provider
             
-            guard:
-                authenticators:
-                    - App\Security\LoginFormAuthenticator
-                entry_point: App\Security\LoginFormAuthenticator
+#            guard:
+#                authenticators:
+#                    - App\Security\LoginFormAuthenticator
+#                entry_point: App\Security\LoginFormAuthenticator
 
             access_denied_handler: App\Security\AccessDeniedHandler
             

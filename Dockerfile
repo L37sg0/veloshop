@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8.0-fpm
 
 # Copy composer.lock and composer.json
 COPY composer.lock composer.json /var/www/
@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
     cron
 
 # Enable NodeSource repository and install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_15.x | bash -E -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -E -
 RUN apt-get update && apt-get install -y nodejs
 
 # Clear cache
