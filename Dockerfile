@@ -1,10 +1,12 @@
-FROM php:8.0-fpm
-
+FROM php:8.1-fpm
 # Copy composer.lock and composer.json
 COPY composer.lock composer.json /var/www/
 
 # Set working directory
 WORKDIR /var/www
+
+# Add Symfony CLI repo
+RUN echo 'deb [trusted=yes] https://repo.symfony.com/apt/ /' | tee /etc/apt/sources.list.d/symfony-cli.list
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -20,7 +22,8 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     libzip-dev \
-    cron
+    cron \
+    symfony-cli
 
 # Enable NodeSource repository and install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -E -
@@ -30,8 +33,16 @@ RUN apt-get update && apt-get install -y nodejs
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install extensions
-RUN docker-php-ext-install pdo_mysql zip exif pcntl
-RUN docker-php-ext-install gd
+RUN docker-php-ext-install \
+    pdo_mysql \
+    zip \
+    exif \
+    pcntl \
+    gd \
+    intl \
+    xsl \
+    amqp \
+    redis \
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
